@@ -15,7 +15,8 @@ def Show::lowest_rating
 end
 
 def Show::least_popular_show
-  Show.order(rating: :asc).first
+  Show.where("rating = ?", Show.lowest_rating).first
+ # Show.order(rating: :asc).first
 end
 
 def Show::ratings_sum
