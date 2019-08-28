@@ -6,6 +6,7 @@ def Show::highest_rating
 end
 
 def Show::most_popular_show
+   Show.where("rating = ?", self.highest_rating).first
   Show.order(rating: :desc).first
 end
 
